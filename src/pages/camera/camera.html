@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <button ion-button icon-right (click)="onTakePicture()">
+        Take Picture <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  {{response}}
+  <img *ngIf="image" style="{width: 25%;height: 25%}" [src]="domSanitizer.bypassSecurityTrustUrl(image)" />
+
+
+</ion-content>
