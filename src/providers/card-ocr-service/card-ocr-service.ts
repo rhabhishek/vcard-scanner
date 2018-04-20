@@ -1,4 +1,4 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import 'rxjs/add/operator/map';
@@ -64,8 +64,7 @@ export class CardOcrServiceProvider {
 
 
   constructor(private androidPermissions: AndroidPermissions,private http: HttpClient) {
-    this.apiUrl+='PIN='+this.pin+'&user='+this.userId+'&pass='+this.password+'&json='+this.jsonFlag+'&lang='+this.language+'&size=1651696';
-/*
+    this.apiUrl+='PIN='+this.pin+'&user='+this.userId+'&pass='+this.password+'&json='+this.jsonFlag+'&lang='+this.language;
 
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_NETWORK_STATE).then(
       result => console.log('Has permission?',result.hasPermission),
@@ -77,24 +76,23 @@ export class CardOcrServiceProvider {
       err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.INTERNET)
     );
 
-*/
 
 
   }
 
   imgToOCR(image){
-    const httpOptions  = {
-      headers: new HttpHeaders({
-        'Content-Encoding':'multipart/form-data',
-        'Transfer-Encoding':'chunk'
-      })
-    };
+
+    const formData = new FormData();
+    const imgBlob = new Blob([image], { type: 'image/jpg' });
+    formData.append('file', imgBlob, 'image.jpg');
 
     console.log('in service');
-    const response = this.http.post(this.mockUrl, image);
+      const response = this.http.post(this.apiUrl+'&size='+image.size,formData);
     console.log('response :'+ JSON.stringify(response));
     return response;
     //return this.http.post(this.mockUrl, image);
+
+
   }
 
 

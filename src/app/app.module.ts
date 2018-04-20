@@ -30,6 +30,7 @@ import { ContactsServiceProvider } from '../providers/contacts-service/contacts-
     BrowserModule,
     HttpModule,
     HttpClientModule,
+
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -45,10 +46,9 @@ import { ContactsServiceProvider } from '../providers/contacts-service/contacts-
     SplashScreen,
     Camera,
     AndroidPermissions,
-
     /**Mock Declaration starts
      * Should be commented when build a mobile application**/
-    { provide: Camera, useClass: CameraMock}, //for testing on browser only
+    //{ provide: Camera, useClass: CameraMock}, //for testing on browser only
     /**Mock declaration ends**/
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CardOcrServiceProvider,

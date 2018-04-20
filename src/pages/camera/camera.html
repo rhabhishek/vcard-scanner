@@ -1,16 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <button ion-button icon-right (click)="onTakePicture()">
-        Take Picture <ion-icon name="camera"></ion-icon>
-      </button>
+     vCard Scanner
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  Response from the API:
+  <hr/>
   {{response}}
+  <hr/>
   <img *ngIf="image" style="{width: 25%;height: 25%}" [src]="domSanitizer.bypassSecurityTrustUrl(image)" />
 
 
 </ion-content>
+
+<ion-footer>
+  <ion-navbar>
+    <ion-title>
+    <button ion-button icon-right (click)="onTakePicture()">
+      Take Picture <ion-icon name="camera"></ion-icon>
+    </button>
+    </ion-title>
+  </ion-navbar>
+</ion-footer>

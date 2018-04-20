@@ -70,6 +70,7 @@ export class CameraPage {
 
        this.image = URL.createObjectURL(blob);
 
+      // this.ocrService.imgToOCR(blob,blob.size);
       this.ocrService.imgToOCR(blob).subscribe(responseObj => {
         this.response  =  JSON.stringify(responseObj);
       });
