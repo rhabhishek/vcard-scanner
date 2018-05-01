@@ -17,6 +17,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
 import {AndroidPermissions} from "@ionic-native/android-permissions";
 import { ContactsServiceProvider } from '../providers/contacts-service/contacts-service';
+import { MsAdalServiceProvider } from '../providers/ms-adal-service/ms-adal-service';
+import {MSAdal} from "@ionic-native/ms-adal";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,6 @@ import { ContactsServiceProvider } from '../providers/contacts-service/contacts-
     BrowserModule,
     HttpModule,
     HttpClientModule,
-
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -48,11 +49,13 @@ import { ContactsServiceProvider } from '../providers/contacts-service/contacts-
     AndroidPermissions,
     /**Mock Declaration starts
      * Should be commented when build a mobile application**/
-    //{ provide: Camera, useClass: CameraMock}, //for testing on browser only
+    { provide: Camera, useClass: CameraMock}, //for testing on browser only
     /**Mock declaration ends**/
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CardOcrServiceProvider,
-    ContactsServiceProvider
+    ContactsServiceProvider,
+    MsAdalServiceProvider,
+    MSAdal
   ]
 })
 export class AppModule {}

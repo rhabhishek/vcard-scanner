@@ -3,6 +3,7 @@ import {AlertController, NavController} from 'ionic-angular';
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {DomSanitizer} from "@angular/platform-browser";
 import {CardOcrServiceProvider} from "../../providers/card-ocr-service/card-ocr-service";
+import {Contact} from "../../providers/contact.model";
 
 @Component({
   selector: 'page-camera',
@@ -12,13 +13,16 @@ export class CameraPage {
 
   private image: string;
   private response;
+  private contact;
 
   constructor(
     public navCtrl: NavController,
     private camera: Camera,
     public alertCtrl: AlertController,
     private domSanitizer: DomSanitizer,
-    private ocrService: CardOcrServiceProvider) {  }
+    private ocrService: CardOcrServiceProvider) {
+   // this.contact = new Contact({});
+  }
 
 
 
@@ -72,7 +76,9 @@ export class CameraPage {
 
       // this.ocrService.imgToOCR(blob,blob.size);
       this.ocrService.imgToOCR(blob).subscribe(responseObj => {
-        this.response  =  JSON.stringify(responseObj);
+
+        this.contact = new Contact(responseObj);
+        this.response  =  this.contact.toString();
       });
     }, (err) => {
       this.displayErrorAlert(err);

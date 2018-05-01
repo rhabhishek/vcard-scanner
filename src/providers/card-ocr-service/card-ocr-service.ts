@@ -65,6 +65,7 @@ export class CardOcrServiceProvider {
 
   constructor(private androidPermissions: AndroidPermissions,private http: HttpClient) {
     this.apiUrl+='PIN='+this.pin+'&user='+this.userId+'&pass='+this.password+'&json='+this.jsonFlag+'&lang='+this.language;
+/*
 
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_NETWORK_STATE).then(
       result => console.log('Has permission?',result.hasPermission),
@@ -75,6 +76,7 @@ export class CardOcrServiceProvider {
       result => console.log('Has permission?',result.hasPermission),
       err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.INTERNET)
     );
+*/
 
 
 
@@ -86,10 +88,8 @@ export class CardOcrServiceProvider {
     const imgBlob = new Blob([image], { type: 'image/jpg' });
     formData.append('file', imgBlob, 'image.jpg');
 
-    console.log('in service');
-      const response = this.http.post(this.apiUrl+'&size='+image.size,formData);
-    console.log('response :'+ JSON.stringify(response));
-    return response;
+    //console.log('in service');
+    return this.http.post(this.apiUrl+'&size='+image.size,formData);
     //return this.http.post(this.mockUrl, image);
 
 

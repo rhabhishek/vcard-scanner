@@ -10,6 +10,68 @@
 
   Response from the API:
   <hr/>
+ <!-- <form>
+    <div class="form-group">
+      <ion-label for="fname">Given Name</ion-label>
+      <ion-input type="text" class="form-control" id="fname" placeholder="First Name"
+             ngModel name="fname" #gname="ngModel" required readonly
+             [(ngModel)]="contact.fname" >
+    </div>
+    <div class="form-group">
+      <ion-label for="lname">Given Name</ion-label>
+      <ion-input type="text" class="form-control" id="lname" placeholder="Last Name"
+             ngModel name="lname" #gname="ngModel" required readonly
+             [(ngModel)]="contact.lname" >
+    </div>
+    <div class="form-group">
+      <ion-label for="cellphone">Cellular Phone</ion-label>
+      <ion-input type="text" class="form-control" id="cellphone" placeholder="Cellular Phone"
+             ngModel name="cellphone" #gname="ngModel" required readonly
+             [(ngModel)]="contact.phone" >
+    </div>
+    <div class="form-group">
+      <ion-label for="workphone">Cellular Phone</ion-label>
+      <ion-input type="text" class="form-control" id="workphone" placeholder="Work Phone"
+             ngModel name="workphone" #gname="ngModel" required readonly
+             [(ngModel)]="contact.phone" >
+    </div>
+    <div class="form-group">
+      <ion-label for="email">Address</ion-label>
+      <ion-input type="text" class="form-control" id="email" placeholder="Email"
+             ngModel name="email" #gname="ngModel" required readonly
+             [(ngModel)]="contact.email" >
+    </div>
+    <div class="form-group">
+      <ion-label for="street">Address</ion-label>
+      <ion-input type="text" class="form-control" id="street" placeholder="Street"
+             ngModel name="street" #gname="ngModel" required readonly
+             [(ngModel)]="contact.address" >
+    </div>
+    <div class="form-group">
+      <ion-label for="city">Address</ion-label>
+      <ion-input type="text" class="form-control" id="city" placeholder="City"
+             ngModel name="city" #gname="ngModel" required readonly
+             [(ngModel)]="contact.address" >
+    </div>
+    <div class="form-group">
+      <ion-label for="state">Address</ion-label>
+      <ion-input type="text" class="form-control" id="state" placeholder="State"
+             ngModel name="state" #gname="ngModel" required readonly
+             [(ngModel)]="contact.address" >
+    </div>
+    <div class="form-group">
+      <ion-label for="country">Address</ion-label>
+      <ion-input type="text" class="form-control" id="country" placeholder="Country"
+             ngModel name="country" #gname="ngModel" required readonly
+             [(ngModel)]="contact.address" >
+    </div>
+    <div class="form-group">
+      <ion-label for="zipcode">Address</ion-label>
+      <ion-input type="text" class="form-control" id="zipcode" placeholder="Zipcode"
+             ngModel name="zipcode" #gname="ngModel" required readonly
+             [(ngModel)]="contact.address" >
+    </div>
+  </form>-->
   {{response}}
   <hr/>
   <img *ngIf="image" style="{width: 25%;height: 25%}" [src]="domSanitizer.bypassSecurityTrustUrl(image)" />
